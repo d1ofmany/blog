@@ -1,24 +1,43 @@
+import axios from 'axios';
+
 export const GET_POSTS = 'GET_POSTS';
 export const GET_POST = 'GET_POST';
-export const GET_USERS = 'GET_USERS';
 
-export const getPosts = (posts) => {
+export const getPostsSuccess = (posts) => {
   return {
-    action: GET_POSTS,
+    type: GET_POSTS,
     posts
   }
 }
 
-export const getPost = (post) => {
-  return {
-    action: GET_POST,
-    post
-  }
+export const getPosts = () => {
+  return dispatch => {
+    return Promise
+      .all([
+        axios.get('http://jsonplaceholder.typicode.com/posts'),
+        axios.get('http://jsonplaceholder.typicode.com/users')
+      ])
+      .then(function (response) {
+        const users = response[1].data.reduce((newUsers, user) => {
+          if (!newUsers[user.id]) newUsers[user.id] = user;
+          return newUsers;
+        }, {});
+
+        const posts = response[0].data.map((post) => {
+          return {...post, user: users[post.userId]};
+        });
+
+        dispatch(getPostsSuccess(posts));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
 }
 
-export const getUsers = (users) => {
+export const getPost = (post) => {
   return {
-    action: GET_USERS,
-    users
+    type: GET_POST,
+    post
   }
 }
