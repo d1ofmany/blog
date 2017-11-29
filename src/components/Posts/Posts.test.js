@@ -53,6 +53,7 @@ describe("PostsComponent", () => {
     it("contains PostItem components", () => {
       expect(shallowWrapper.find("input").length).toEqual(1);
       expect(shallowWrapper.find("PostItem").length).toEqual(5);
+      expect(shallowWrapper.find(".PostMore-link").length).toEqual(1);
     });
 
     it("action getPosts is called", () => {
@@ -87,9 +88,14 @@ describe("PostsComponent", () => {
       expect(shallowWrapper.state("showNumber")).toEqual(10);
     });
 
-    it("display more posts based on state showNumber", () => {
+    it("display more posts based on state", () => {
       shallowWrapper.setState({ showNumber: 10 });
       expect(shallowWrapper.find("PostItem").length).toEqual(9);
+    });
+
+    it("hide more posts button based when all posts are shown", () => {
+      shallowWrapper.setState({ showNumber: 10 });
+      expect(shallowWrapper.find(".PostMore-link").length).toEqual(0);
     });
   });
 });
