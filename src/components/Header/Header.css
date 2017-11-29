@@ -1,22 +1,32 @@
 .Navigation {
-    margin: 0;
-    list-style: none;
-    background-color: teal;
-    display: flex;
+  margin: 0;
+  list-style: none;
+  background-color: #8e8e8e;
+  display: flex;
+  box-shadow: inset 0 -10px 10px #66666666;
 }
 
 .Navigation-item {
-    padding: 1em 0.5em;
+  padding: 1em 1.5em;
+}
+
+.Navigation-item:hover {
+  background-color: #7e7d7d;
 }
 
 .Navigation-link {
-    text-decoration: none;
-    text-transform: uppercase;
+  color: #f3f3f3;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .Logo {
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Logo-image {
+  max-height: 100%;
 }

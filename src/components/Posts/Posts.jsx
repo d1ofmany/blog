@@ -2,14 +2,15 @@ import React, { Component } from "react";
 
 import PostItem from "./PostItem";
 
-import './Posts.css';
+import "./Posts.css";
 
 class Home extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      search: ""
+      search: "",
+      showNumber: 5
     };
   }
 
@@ -21,16 +22,21 @@ class Home extends Component {
     this.setState({ search: event.target.value });
   }
 
+  handleClick() {
+    this.setState({ showNumber: this.state.showNumber + 5 });
+  }
+
   render() {
     const { posts } = this.props;
 
     const PostItems = posts
+      .slice(0, this.state.showNumber)
       .filter(post =>
         post.user.name.toLowerCase().match(this.state.search.toLowerCase())
       )
       .map(post => <PostItem key={post.id} post={post} />);
-      
-    const NoPosts = <PostItem post={{title: "No posts"}} />;
+
+    const NoPosts = <PostItem post={{ title: "No posts" }} />;
 
     return (
       <div className="Posts">
@@ -48,6 +54,13 @@ class Home extends Component {
             {PostItems.length > 0 ? PostItems : NoPosts}
           </ul>
         </div>
+        {this.state.showNumber < this.props.posts.length && (
+          <div className="PostMore">
+            <a className="PostMore-link" onClick={() => this.handleClick()}>
+              More Posts
+            </a>
+          </div>
+        )}
       </div>
     );
   }

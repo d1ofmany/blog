@@ -25,7 +25,12 @@ describe("PostsComponent", () => {
     });
 
     it("displays 'No posts' message", () => {
-      expect(shallowWrapper.find("PostItem").dive().text()).toEqual("No posts");
+      expect(
+        shallowWrapper
+          .find("PostItem")
+          .dive()
+          .text()
+      ).toEqual("No posts");
     });
   });
 
@@ -47,7 +52,7 @@ describe("PostsComponent", () => {
 
     it("contains PostItem components", () => {
       expect(shallowWrapper.find("input").length).toEqual(1);
-      expect(shallowWrapper.find("PostItem").length).toEqual(2);
+      expect(shallowWrapper.find("PostItem").length).toEqual(5);
     });
 
     it("action getPosts is called", () => {
@@ -74,7 +79,17 @@ describe("PostsComponent", () => {
       shallowWrapper.setState({ search: "mike" });
       expect(shallowWrapper.find("PostItem").length).toEqual(1);
       shallowWrapper.setState({ search: "" });
-      expect(shallowWrapper.find("PostItem").length).toEqual(2);
+      expect(shallowWrapper.find("PostItem").length).toEqual(5);
+    });
+
+    it("it changes state on more posts button click", () => {
+      shallowWrapper.find(".PostMore-link").simulate("click");
+      expect(shallowWrapper.state("showNumber")).toEqual(10);
+    });
+
+    it("display more posts based on state showNumber", () => {
+      shallowWrapper.setState({ showNumber: 10 });
+      expect(shallowWrapper.find("PostItem").length).toEqual(9);
     });
   });
 });

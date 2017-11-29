@@ -18,7 +18,7 @@ describe("HeaderComponent", () => {
   });
 
   it("containse correct elements", () => {
-    expect(shallowWrapper.find("h1").length).toEqual(1);
+    expect(shallowWrapper.find("img").length).toEqual(1);
     expect(shallowWrapper.find("li").length).toEqual(2);
     expect(shallowWrapper.find("Link").length).toEqual(2);
   });

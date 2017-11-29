@@ -1,24 +1,34 @@
 .Posts {
-    margin: 0 auto;
-    padding: 0 1em;
-    max-width: 40em;
+  margin: 0 auto;
+  padding: 0 1em 2em;
+  max-width: 40em;
 }
 
 .PostItems {
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  list-style: none;
 }
 
 .Search-input-text {
-    font-size: 2em;
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid lightgrey;
-    padding: 0.2em 0.2em;
-    box-sizing: border-box;
-    outline: none;
+  font-size: 2em;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  padding: 0.2em 0.2em;
+  box-sizing: border-box;
+  outline: none;
 }
 
 .Search-input-text:focus {
-    border-bottom: 1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.PostMore {
+  display: flex;
+  justify-content: center;
+}
+
+.PostMore-link {
+  text-decoration: underline;
+  cursor: pointer;
 }
