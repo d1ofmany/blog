@@ -19,19 +19,19 @@ describe("PostBodyComponent", () => {
   });
 
   it("contains post elements", () => {
-    expect(shallowWrapper.find(".post-title").length).toEqual(1);
-    expect(shallowWrapper.find(".post-author").length).toEqual(1);
-    expect(shallowWrapper.find(".post-body").length).toEqual(1);
+    expect(shallowWrapper.find(".PostContent-title").length).toEqual(1);
+    expect(shallowWrapper.find(".PostContent-author").length).toEqual(1);
+    expect(shallowWrapper.find(".PostContent-body").length).toEqual(1);
   });
 
   it("contains comments", () => {
-    expect(shallowWrapper.find(".post-comments li").length).toEqual(5);
+    expect(shallowWrapper.find(".PostComment").length).toEqual(5);
   });
 
   it("comments containe correct elements", () => {
-    const singleComment = shallowWrapper.find(".post-comments li").first();
-    expect(singleComment.find(".comment-title").length).toEqual(1);
-    expect(singleComment.find(".comment-author").length).toEqual(1);
-    expect(singleComment.find(".comment-body").length).toEqual(1);
+    const singleComment = shallowWrapper.find(".PostComment").first();
+    expect(singleComment.find(".PostComment-title").length).toEqual(1);
+    expect(singleComment.find(".PostComment-author").length).toEqual(1);
+    expect(singleComment.find(".PostComment-body").length).toEqual(1);
   });
 });

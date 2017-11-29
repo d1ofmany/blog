@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import PostBody from "./PostBody";
 import Loading from "./Loading";
 
+import './Post.css';
+
 class Post extends Component {
   componentWillMount() {
     if (!this.props.posts.length > 0) {

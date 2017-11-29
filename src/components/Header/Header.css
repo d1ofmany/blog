@@ -1,0 +1,22 @@
+.Navigation {
+    margin: 0;
+    list-style: none;
+    background-color: teal;
+    display: flex;
+}
+
+.Navigation-item {
+    padding: 1em 0.5em;
+}
+
+.Navigation-link {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.Logo {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

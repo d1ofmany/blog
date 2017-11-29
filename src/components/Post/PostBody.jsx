@@ -1,24 +1,28 @@
 import React from "react";
 
+import "./PostBody.css";
+
 const PostBody = ({ post }) => {
   const comments = post.comments.map(comment => {
     return (
-      <li key={comment.id}>
-        <h5 className="comment-title">{comment.name}</h5>
-        <p className="comment-body">{comment.body}</p>
-        <small className="comment-author">{comment.email}</small>
+      <li className="PostComment" key={comment.id}>
+        <h5 className="PostComment-title">{comment.name}</h5>
+        <p className="PostComment-author">Author: {comment.email}</p>
+        <p className="PostComment-body">{comment.body}</p>
       </li>
     );
   });
 
   return (
     <div className="PostBody">
-      <h3 className="post-title">{post.title}</h3>
-      <small className="post-author">{post.user.name}</small>
-      <p className="post-body">{post.body}</p>
-      <div className="post-comments">
+      <div className="PostContent">
+        <h3 className="PostContent-title">{post.title}</h3>
+        <small className="PostContent-author">{post.user.name}</small>
+        <p className="PostContent-body">{post.body}</p>
+      </div>
+      <div className="PostComments">
         <h4>Comments</h4>
-        <ul>{comments}</ul>
+        <ul className="PostComments-list">{comments}</ul>
       </div>
     </div>
   );

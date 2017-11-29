@@ -13,8 +13,8 @@ export const getPostsSuccess = posts => {
 export const getPosts = () => {
   return dispatch => {
     return Promise.all([
-      axios.get("http://jsonplaceholder.typicode.com/posts"),
-      axios.get("http://jsonplaceholder.typicode.com/users")
+      axios.get("//jsonplaceholder.typicode.com/posts"),
+      axios.get("//jsonplaceholder.typicode.com/users")
     ])
       .then(response => {
         const users = response[1].data.reduce((newUsers, user) => {
@@ -44,7 +44,7 @@ export const getPostSuccess = post => {
 export const getPostComments = post => {
   return dispatch => {
     return axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+      .get(`//jsonplaceholder.typicode.com/posts/${post.id}/comments`)
       .then(response => {
         post = { ...post, comments: response.data };
         dispatch(getPostSuccess(post));

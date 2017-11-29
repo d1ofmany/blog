@@ -7,6 +7,8 @@ import Posts from "./Posts";
 import Post from "./Post";
 import About from "./About";
 
+import './App.css';
+
 const App = ({ store }) => {
   return (
     <Provider store={store}>

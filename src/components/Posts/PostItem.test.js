@@ -19,8 +19,8 @@ describe("PostItemComponent", () => {
   });
 
   it("contains post elements", () => {
-    expect(shallowWrapper.find(".post-title").length).toEqual(1);
-    expect(shallowWrapper.find(".post-author").length).toEqual(1);
-    expect(shallowWrapper.find(".post-body").length).toEqual(1);
+    expect(shallowWrapper.find(".PostItem-title").length).toEqual(1);
+    expect(shallowWrapper.find(".PostItem-author").length).toEqual(1);
+    expect(shallowWrapper.find(".PostItem-body").length).toEqual(1);
   });
 });

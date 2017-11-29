@@ -25,7 +25,7 @@ describe("PostsComponent", () => {
     });
 
     it("displays 'No posts' message", () => {
-      expect(shallowWrapper.text()).toEqual("No posts");
+      expect(shallowWrapper.find("PostItem").dive().text()).toEqual("No posts");
     });
   });
 
@@ -70,7 +70,7 @@ describe("PostsComponent", () => {
 
     it("display filtered posts on author search", () => {
       shallowWrapper.setState({ search: "john" });
-      expect(shallowWrapper.find("PostItem").length).toEqual(0);
+      expect(shallowWrapper.find("PostItem").length).toEqual(1);
       shallowWrapper.setState({ search: "mike" });
       expect(shallowWrapper.find("PostItem").length).toEqual(1);
       shallowWrapper.setState({ search: "" });
