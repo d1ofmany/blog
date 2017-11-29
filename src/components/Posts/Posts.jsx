@@ -54,7 +54,7 @@ class Home extends Component {
             {PostItems.length > 0 ? PostItems : NoPosts}
           </ul>
         </div>
-        {this.state.showNumber < this.props.posts.length && (
+        {this.state.showNumber <= PostItems.length && (
           <div className="PostMore">
             <a className="PostMore-link" onClick={() => this.handleClick()}>
               More Posts
